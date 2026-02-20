@@ -27,10 +27,16 @@ class PaymentProcessor{
         this.paymentMethod = paymentMethod;
     }
 
+    setPaymentMethod(strategy) {
+        this.paymentMethod = strategy; 
+    }
+
     makePayment(){
         this.paymentMethod.pay()
     }
 }
 
 const processPayment = new PaymentProcessor(new UPI());
+processPayment.makePayment()
+processPayment.setPaymentMethod(new CreditCard());
 processPayment.makePayment()
